@@ -59,9 +59,9 @@ $(function() {
           * clicked? Does it hide when clicked again?*/
         it('toggles when clicked', function() {
             $('.menu-icon-link').click();
-            expect(document.body.className).not.toContain('menu-hidden');
+            expect(document.body.classList).not.toContain('menu-hidden');
             $('.menu-icon-link').click();
-            expect(document.body.className).toContain('menu-hidden');
+            expect(document.body.classList).toContain('menu-hidden');
         });
     });
     /* Test suite named "Initial Entries" */
@@ -76,10 +76,9 @@ $(function() {
             });
         });
 
-        it('feed container contains 1 or more entries', function(done) {
+        it('feed container contains 1 or more entries', function() {
             var contents = document.querySelectorAll('.feed .entry').length;
             expect(contents).toBeGreaterThan(0);
-            done();
         });
     });
 
@@ -100,13 +99,12 @@ $(function() {
             });
         });
 
-        it('content changes when new feed is loaded', function(done) {
+        it('content changes when new feed is loaded', function() {
             expect(firstRun).toBeDefined();
             expect(secondRun).not.toBeDefined();
             secondRun = $('.feed').html();
             expect(secondRun).toBeDefined();
             expect(firstRun).not.toBe(secondRun);
-            done();
         });
     });
 }());
